@@ -1,6 +1,5 @@
-test("prints Hello, World!", () => {
-  const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
-  console.log("Hello, World!");
-  expect(logSpy).toHaveBeenCalledWith("Hello, World!");
-  logSpy.mockRestore();
+const helloWorld = require("./helloworld");
+
+test("returns Hello, World!", () => {
+  expect(helloWorld()).toBe("Hello, World!");
 });
