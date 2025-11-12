@@ -1,17 +1,12 @@
-test("logs correct arithmetic results", () => {
-  const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+const arithmeticOperations = require("./arithmetic-operators");
 
-  let a = 3;
-  let b = 5;
+test("checks arithmetic operations for a = 3 and b = 5", () => {
+  const a = 3;
+  const b = 5;
 
-  console.log(a + b); // Addition
-  console.log(a - b); // Subtraction
-  console.log(a * b); // Multiplication
+  const result = arithmeticOperations(a, b);
 
-  // Verify that console.log was called with correct values
-  expect(logSpy).toHaveBeenNthCalledWith(1, 8); // a + b
-  expect(logSpy).toHaveBeenNthCalledWith(2, -2); // a - b
-  expect(logSpy).toHaveBeenNthCalledWith(3, 15); // a * b
-
-  logSpy.mockRestore();
+  expect(result.addition).toBe(8); // 3 + 5
+  expect(result.subtraction).toBe(-2); // 3 - 5
+  expect(result.multiplication).toBe(15); // 3 * 5
 });
