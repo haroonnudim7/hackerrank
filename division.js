@@ -1,5 +1,8 @@
-let a = 3; 
-let b = 5; 
+function divide(a, b) {
+  return {
+    floorResult: Math.floor(a / b),
+    normalResult: a / b,
+  };
+}
 
-console.log(Math.floor(a / b));
-console.log(a / b);
+module.exports = divide;
